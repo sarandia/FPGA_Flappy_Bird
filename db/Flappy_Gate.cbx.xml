@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="Flappy_Gate">
+		<CBX_INST_ENTRY INSTANCE_NAME="|Flappy_Gate|Graphics:G1|Background_Graphics_Storage_B:BackgroundB|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_27j1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Flappy_Gate|Graphics:G1|Background_Graphics_Storage_R:BackgroundR|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_i7j1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Flappy_Gate|Graphics:G1|Player1_Graphics_Storage_B:Player1B|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_9ni1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Flappy_Gate|Graphics:G1|Player1_Graphics_Storage_R:Player1R|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_pni1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Flappy_Gate|Graphics:G1|Player2_Graphics_Storage_G:Player2G|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_0pi1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Flappy_Gate|Graphics:G1|player:P1|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|mpar_add:sub_par_add|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_fkh.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Flappy_Gate|VGA_SYNC_module:U1|video_PLL:video_PLL_inst|altpll:altpll_component" CBX_FILE_NAME="altpll_dp72.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Flappy_Gate|hex_display:HEX_display_module|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_jhm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Flappy_Gate|Graphics:G1|Background_Graphics_Storage_G:BackgroundG|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_77j1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Flappy_Gate|Graphics:G1|Player1_Graphics_Storage_G:Player1G|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_eni1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Flappy_Gate|Graphics:G1|Player2_Graphics_Storage_B:Player2B|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_roi1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Flappy_Gate|Graphics:G1|Player2_Graphics_Storage_R:Player2R|altsyncram:altsyncram_component" CBX_FILE_NAME="altsyncram_bpi1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Flappy_Gate|Graphics:G1|player:P1|lpm_mult:Mult0|multcore:mult_core|mpar_add:padder|lpm_add_sub:adder[0]" CBX_FILE_NAME="add_sub_h9h.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|Flappy_Gate|hex_display:HEX_display_module|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_q9m.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

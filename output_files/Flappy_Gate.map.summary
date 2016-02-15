@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Dec 11 23:00:51 2014
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Revision Name : Flappy_Gate
+Top-level Entity Name : Flappy_Gate
+Family : Cyclone IV E
+Total logic elements : 1,177
+    Total combinational functions : 1,140
+    Dedicated logic registers : 182
+Total registers : 182
+Total pins : 75
+Total virtual pins : 0
+Total memory bits : 3,244,032
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 1

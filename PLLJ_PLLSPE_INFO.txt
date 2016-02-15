@@ -1,0 +1,5 @@
+PLL_Name	VGA_SYNC_module:U1|video_PLL:video_PLL_inst|altpll:altpll_component|altpll_dp72:auto_generated|pll1
+PLLJITTER	30
+PLLSPEmax	84
+PLLSPEmin	-53
+

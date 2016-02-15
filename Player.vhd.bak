@@ -1,0 +1,62 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.all;
+USE IEEE.STD_LOGIC_ARITH.all;
+USE IEEE.STD_LOGIC_UNSIGNED.all;
+
+
+ENTITY player IS
+
+   PORT(pixel_row, pixel_column	: IN std_logic_vector(9 DOWNTO 0);
+        is_player		 				: OUT std_logic;
+        clk								: IN std_logic);
+		
+END player;
+
+architecture behavior of player is
+
+			-- Video Display Signals
+--SIGNAL Wall_on						: std_logic;
+SIGNAL Size						: std_logic_vector(9 DOWNTO 0);  
+SIGNAL X_pos						: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(100,10);
+SIGNAL Y_pos						: std_logic_vector(9 DOWNTO 0) := CONV_STD_LOGIC_VECTOR(240,10);
+SIGNAL Speed		 				: std_logic_vector(9 DOWNTO 0);
+
+
+BEGIN
+
+Width <= CONV_STD_LOGIC_VECTOR(40,10);
+Height <= CONV_STD_LOGIC_VECTOR(112, 10);
+Speed <= CONV_STD_LOGIC_VECTOR(-2,10);
+
+RGB_Display: Process (X_pos, pixel_column, pixel_row, Width, Height, Delta_height)
+BEGIN
+			-- Set Wall_on ='1' to display wall
+	IF  (pixel_column >= X_pos) AND
+		(pixel_column >= X_pos + Width) AND
+			(((pixel_row >= 0) AND (pixel_row <= Height + Delta_height)) OR
+			 ((pixel_row >= 480 - Height + Delta_height) AND pixel_row <= 480)) THEN
+		Wall_on <= '1';
+ 	ELSE
+ 		Wall_on <= '0';
+END IF;
+END process RGB_Display;
+
+
+Move_Wall: process
+BEGIN
+	WAIT UNTIL clk'event and clk = '1';
+	
+		IF (X_pos + Width) < 0 THEN
+			X_pos <= CONV_STD_LOGIC_VECTOR(650,10);
+		END IF;
+		
+		IF X_pos >= 640 THEN
+			Delta_height <= Delta_height(6 DOWNTO 0) & (Delta_height(7) XOR Delta_height(5) XOR Delta_height(4) XOR Delta_height(3));
+		END IF;
+		
+		-- Compute next wall X position
+		X_pos <= X_pos + Speed;
+		
+END process Move_Wall;
+
+END behavior;

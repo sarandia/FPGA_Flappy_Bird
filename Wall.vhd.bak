@@ -1,0 +1,64 @@
+LIBRARY IEEE;
+USE IEEE.STD_LOGIC_1164.all;
+USE  IEEE.STD_LOGIC_ARITH.all;
+USE  IEEE.STD_LOGIC_UNSIGNED.all;
+
+
+ENTITY wall IS
+
+   PORT(pixel_row, pixel_column		: IN std_logic_vector(9 DOWNTO 0);
+        Red,Green,Blue 				: OUT std_logic;
+        Vert_sync					: IN std_logic);
+		
+END wall;
+
+architecture behavior of wall is
+
+			-- Video Display Signals
+SIGNAL Wall_on						: std_logic;
+SIGNAL Width, Height				: std_logic_vector(9 DOWNTO 0);  
+SIGNAL X_pos						: std_logic_vector(9 DOWNTO 0);
+SIGNAL Speed		 				: std_logic_vector(9 DOWNTO 0);
+
+
+BEGIN
+
+Width <= CONV_STD_LOGIC_VECTOR(40,10);
+Height <= CONV_STD_LOGIC_VECTOR(120, 10)
+X_pos <= CONV_STD_LOGIC_VECTOR(320,10);
+Speed <= CONV_STD_LOGIC_VECTOR(-2,10);
+
+		-- Colors for pixel data on video signal
+Red <=  '1';
+		-- Turn off Green and Blue when displaying wall
+Green <= NOT Wall_on;
+Blue <=  NOT Wall_on;
+
+RGB_Display: Process (X_pos, pixel_column, pixel_row, Width, Height)
+BEGIN
+			-- Set Wall_on ='1' to display wall
+	IF  (pixel_column >= X_pos) AND
+		(pixel_column >= X_pos + Width) AND
+			(((pixel_row >= 0) AND (pixel_row <= Height)) OR
+			 ((pixel_row >= 480 - Height) AND pixel_row <= 480)) THEN
+		Wall_on => '1';
+ 	ELSE
+ 		Wall_on <= '0';
+END IF;
+END process RGB_Display;
+
+
+Move_Wall: process
+BEGIN
+			-- Move wall once every vertical sync
+	WAIT UNTIL vert_sync'event and vert_sync = '1';
+	
+		IF (X_pos + Width) < 0 THEN
+			X_pos <= CONV_STD_LOGIC_VECTOR(640,10);
+		END IF;
+		-- Compute next wall X position
+			X_pos <= X_pos + Speed;
+END process Move_Wall;
+
+END behavior;
+
